@@ -11,6 +11,11 @@ file_out = open(dest_file, 'w')
 
 with open(src_file, 'rb') as csvfile:
     out = csv.reader(csvfile, delimiter=',')
+
+    # TODO: Add a prompt before writing to file that displays the values in
+    # each of the fields. User can make changes to the selected fields within
+    # the terminal.
+
     for row in out:
         title = ''
         if row[0].find('https://') == 1:
