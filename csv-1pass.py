@@ -16,6 +16,41 @@ with open(src_file, 'rb') as csvfile:
     # each of the fields. User can make changes to the selected fields within
     # the terminal.
 
+    # Initialize matrix containing
+    entries = [[ 'N/A' for x in range(7)] for y in range(sum(1 for row in src_file) - 2)]
+
+    for x, y in enumerate(out):
+        entries[x][1] = y[0]
+        entries[x][2] = y[1]
+        entries[x][3] = y[2] 
+
+        print (
+                '%s\n--------\n'
+                '%-15s %s\n'
+                '%-15s %s\n'
+                '%-15s %s\n'
+                '%-15s %s\n'
+                '%-15s %s\n'
+                '%-15s %s\n'
+                '%-15s %s\n'
+                % (
+                    'Entry #' + str(x),
+                    'URL', entries[x][0],
+                    'Title', entries[x][1],
+                    'Username', entries[x][2],
+                    'Password', entries[x][3],
+                    'Notes', entries[x][4],
+                    'Custom Field 1', entries[x][5],
+                    'Custom Field 2', entries[x][6]
+                    ))
+
+    '''
+    for x, y in enumerate(entries):
+        print str(x)
+        print y
+    '''
+
+    '''
     for row in out:
         title = ''
         if row[0].find('https://') == 1:
@@ -30,4 +65,5 @@ with open(src_file, 'rb') as csvfile:
         except Exception as e:
             print type(e)
             print str(e)
+    '''
 file_out.close()
